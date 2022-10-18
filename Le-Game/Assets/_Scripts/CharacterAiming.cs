@@ -3,33 +3,51 @@ using UnityEngine.Animations.Rigging;
 
 public class CharacterAiming : MonoBehaviour
 {
-    Camera mainCamera;
     float turnSpeed = 15f;
     float CamAngle;
-    [SerializeField] Rig aimLayer;
     [SerializeField] float aimDuration = .3f;
+    
+    
+    [SerializeField] Rig aimLayer;
+    Camera mainCamera;
+    RaycastWeapon weapon;
     void Start()
     { 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         mainCamera = Camera.main;
+        weapon=GetComponentInChildren<RaycastWeapon>();
     }
 
     void FixedUpdate()
     {
        
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, CamAngle,0), turnSpeed*Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, CamAngle,0), turnSpeed*Time.deltaTime);
     }
     private void Update()
     {
         CamAngle = mainCamera.transform.rotation.eulerAngles.y;
-        if (Input.GetMouseButton(1))
+    }
+    private void LateUpdate()
+    {
+        if (aimLayer)
         {
-            aimLayer.weight += Time.deltaTime / aimDuration;
+            if (Input.GetButton("Fire2"))
+            {
+                aimLayer.weight += Time.deltaTime / aimDuration;
+            }
+            else
+            {
+                aimLayer.weight -= Time.deltaTime / aimDuration;
+            }
         }
-        else
+
+        if (Input.GetButtonDown("Fire1")){
+            weapon.StarFiring();
+        }
+        else if (Input.GetButtonUp("Fire1"))
         {
-            aimLayer.weight -= Time.deltaTime / aimDuration;
+            weapon.StopFiring();
         }
     }
 }
