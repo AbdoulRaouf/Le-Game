@@ -42,10 +42,15 @@ public class CharacterAiming : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Fire1")){
+        if (Input.GetButtonDown("Fire1") && Input.GetButton("Fire2")){
             weapon.StarFiring();
         }
-        else if (Input.GetButtonUp("Fire1"))
+        if (weapon.isFire)
+        {
+            weapon.UpdateFiring(Time.deltaTime);
+        }
+        weapon.UpdateBullets(Time.deltaTime);
+        if (Input.GetButtonUp("Fire1"))
         {
             weapon.StopFiring();
         }

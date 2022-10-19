@@ -25109,6 +25109,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fde83d4a76095147802bee8ca9b0da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFire: 0
+  fireRate: 25
+  bulletSpeed: 20
+  bulletDrop: 0
+  accumulationTime: 0
+  fireinterval: 0
   tracerEffect: {fileID: 1096207664284272528, guid: c9d86b4448a13bd4f8787a1373430f40,
     type: 3}
   MuzzeleFlash:
