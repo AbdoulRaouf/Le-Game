@@ -81,13 +81,17 @@ public class RaycastWeapon : MonoBehaviour
             RaycastSegment(p0, p1, bullet);
         });
     }
+    private void DestroyBullets()
+    {
+        Bullets.RemoveAll(bullet => bullet.time >= maxlifetime);
+    }
     void RaycastSegment(Vector3 star, Vector3 end, Bullet bullet)
-    { 
-        Vector3 direction= end-star;
-        float distance =direction.magnitude;
+    {
+        Vector3 direction = end - star;
+        float distance = direction.magnitude;
         ray.origin = star;
         ray.direction = direction;
-        if (Physics.Raycast(ray, out hitInfo,distance))
+        if (Physics.Raycast(ray, out hitInfo, distance))
         {
 
             //Debug.DrawLine(ray.origin, hitInfo.point, Color.blue, 1.0f);
@@ -99,12 +103,12 @@ public class RaycastWeapon : MonoBehaviour
             bullet.time = maxlifetime;
         }
         else
+        {
             bullet.tracer.transform.position = end;
+            //bullet.time = maxlifetime;
+        }
     }
-    private void DestroyBullets()
-    {
-        Bullets.RemoveAll(bullet=>bullet.time > maxlifetime);
-    }
+   
     private void fireBullet()
     {
         foreach (var particle in MuzzeleFlash)

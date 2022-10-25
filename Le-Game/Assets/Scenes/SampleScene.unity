@@ -538,8 +538,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.12232356, y: 1.1705943e-15, z: -1.4427472e-16, w: 0.9924903}
-  m_LocalPosition: {x: 15.633198, y: 2.5584493, z: 5.1278605}
+  m_LocalRotation: {x: 0.12232355, y: 1.1705945e-15, z: -1.4427472e-16, w: 0.9924903}
+  m_LocalPosition: {x: 15.633198, y: 2.5584493, z: 0.3587165}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4651,7 +4651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298541887681889473}
   m_LocalRotation: {x: 0, y: 0.66022086, z: 0, w: -0.7510716}
-  m_LocalPosition: {x: 15.253198, y: 0.000000059604645, z: 8.979144}
+  m_LocalPosition: {x: 15.253198, y: 0.000000059604645, z: 4.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25111,7 +25111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFire: 0
   fireRate: 25
-  bulletSpeed: 20
+  bulletSpeed: 30
   bulletDrop: 0
   accumulationTime: 0
   fireinterval: 0
